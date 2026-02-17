@@ -20,6 +20,7 @@ const config: Config = {
   organizationName: 'reetnandasana12',
   projectName: 'learning-vault',
 
+  trailingSlash: true,
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
