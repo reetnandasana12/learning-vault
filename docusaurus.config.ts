@@ -71,11 +71,36 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Notes',
+          title: 'SQL Basics',
           items: [
             {
-              label: 'SQL',
+              label: 'Introduction',
               to: '/docs/sql/introduction',
+            },
+            {
+              label: 'Filtering & Sorting',
+              to: '/docs/sql/filtering-and-sorting',
+            },
+            {
+              label: 'Joins',
+              to: '/docs/sql/joins',
+            },
+          ],
+        },
+        {
+          title: 'SQL Advanced',
+          items: [
+            {
+              label: 'Window Functions',
+              to: '/docs/sql/window-functions-basics',
+            },
+            {
+              label: 'CTEs',
+              to: '/docs/sql/common-table-expressions',
+            },
+            {
+              label: 'Performance Tips',
+              to: '/docs/sql/performance-optimization',
             },
           ],
         },

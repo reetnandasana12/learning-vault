@@ -72,6 +72,46 @@ FROM employees e
 LEFT JOIN employees m ON e.manager_id = m.id;
 ```
 
+## Anti Joins
+
+Find rows that do **not** have a match in the other table.
+
+### LEFT ANTI JOIN
+
+Rows in the left table with no match in the right.
+
+```sql
+SELECT c.*
+FROM customers c
+LEFT JOIN orders o ON c.id = o.customer_id
+WHERE o.customer_id IS NULL;
+```
+
+### RIGHT ANTI JOIN
+
+Rows in the right table with no match in the left.
+
+```sql
+SELECT o.*
+FROM customers c
+RIGHT JOIN orders o ON c.id = o.customer_id
+WHERE c.id IS NULL;
+```
+
+## Joining Multiple Tables
+
+```sql
+SELECT
+    o.OrderID,
+    p.Product,
+    c.FirstName AS Customer,
+    e.FirstName AS SalesPerson
+FROM Sales.Orders AS o
+LEFT JOIN Sales.Products  AS p ON p.ProductID  = o.ProductID
+LEFT JOIN Sales.Customers AS c ON c.CustomerID = o.CustomerID
+LEFT JOIN Sales.Employees AS e ON e.EmployeeID = o.SalesPersonID;
+```
+
 ## Join Summary
 
 | Join | Returns |

@@ -57,7 +57,21 @@ SELECT name, salary,
 FROM employees;
 ```
 
-## EXISTS
+## Correlated Subqueries
+
+A correlated subquery references the outer query — it runs once per outer row.
+
+```sql
+-- Employees earning more than their department's average
+SELECT name, salary, department_id
+FROM employees e1
+WHERE salary > (
+    SELECT AVG(salary) FROM employees e2
+    WHERE e2.department_id = e1.department_id
+);
+```
+
+## EXISTS & NOT EXISTS
 
 Returns `TRUE` if the subquery returns any rows.
 
@@ -68,4 +82,19 @@ FROM departments d
 WHERE EXISTS (
     SELECT 1 FROM employees e WHERE e.department_id = d.id
 );
+
+-- Departments with NO employees
+SELECT department_name
+FROM departments d
+WHERE NOT EXISTS (
+    SELECT 1 FROM employees e WHERE e.department_id = d.id
+);
 ```
+
+## Subquery Result Types
+
+| Type | Returns | Example Use |
+|------|---------|-------------|
+| Scalar | Single value | `WHERE salary > (SELECT AVG(salary) ...)` |
+| Row | Single row | `WHERE (a, b) = (SELECT ...)` |
+| Table | Multiple rows/columns | `FROM (SELECT ...) AS t` |

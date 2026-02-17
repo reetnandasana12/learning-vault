@@ -30,3 +30,18 @@ SQL (Structured Query Language) is a standard language for storing, manipulating
 | **DQL** | Data Query Language | `SELECT` | Query/retrieve data |
 | **DCL** | Data Control Language | `GRANT`, `REVOKE` | Control access |
 | **TCL** | Transaction Control Language | `COMMIT`, `ROLLBACK`, `SAVEPOINT` | Manage transactions |
+
+## SQL Execution Order
+
+Understanding the logical order in which SQL processes a query:
+
+```
+FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT/TOP
+```
+
+## Why Learn SQL?
+
+- **Universal**: Works across all relational databases
+- **In demand**: Required for data analysts, engineers, backend developers, and data scientists
+- **Declarative**: You describe *what* you want, not *how* to get it
+- **Powerful**: Handles everything from simple lookups to complex analytics
