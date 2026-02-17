@@ -14,10 +14,10 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  url: 'https://rtnandasana.github.io',
+  url: 'https://reetnandasana12.github.io',
   baseUrl: '/learning-vault/',
 
-  organizationName: 'rtnandasana',
+  organizationName: 'reetnandasana12',
   projectName: 'learning-vault',
 
   onBrokenLinks: 'throw',
