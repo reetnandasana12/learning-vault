@@ -23,6 +23,11 @@ function HomepageHeader() {
             to="/docs/sql/introduction">
             Start with SQL
           </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/dsa/dsa-introduction">
+            Start with DSA
+          </Link>
         </div>
       </div>
     </header>

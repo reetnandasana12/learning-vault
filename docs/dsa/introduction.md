@@ -88,4 +88,4 @@ Pattern Recognition (Interview Guide)
 - Start with **brute force**, then optimize
 - Communicate your **time and space complexity**
 
-> Start from the [Big-O & Complexity Analysis](./big-o-complexity) section.
+> Start from the **Big-O & Complexity Analysis** section in the sidebar.
