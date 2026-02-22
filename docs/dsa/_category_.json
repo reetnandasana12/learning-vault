@@ -1,0 +1,10 @@
+{
+  "label": "DSA — Data Structures & Algorithms",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "title": "Data Structures & Algorithms",
+    "description": "Complete DSA reference with C++ and Java examples, pattern recognition guide, and interview preparation.",
+    "slug": "/dsa"
+  }
+}
