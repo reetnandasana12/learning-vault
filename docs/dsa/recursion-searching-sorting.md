@@ -4,6 +4,10 @@ title: Recursion, Searching & Sorting
 sidebar_position: 4
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Recursion, Searching & Sorting
 
 ---
@@ -16,6 +20,9 @@ Every recursive function needs:
 1. **Base case** — stops recursion
 2. **Recursive case** — reduces problem size
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
 // C++: Factorial
 int factorial(int n) {
@@ -25,6 +32,9 @@ int factorial(int n) {
 // factorial(5) = 5 * 4 * 3 * 2 * 1 = 120
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int factorial(int n) {
@@ -33,11 +43,17 @@ int factorial(int n) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Fibonacci (Memoized)
 
 Naive recursion is O(2ⁿ). With memoization → O(n).
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -48,6 +64,9 @@ long long fib(int n) {
     return memo[n] = fib(n - 1) + fib(n - 2);
 }
 ```
+
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 // Java
@@ -61,6 +80,9 @@ long fib(int n) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Backtracking
@@ -68,6 +90,9 @@ long fib(int n) {
 Try all possibilities. If current path fails, **undo** (backtrack) and try next.
 
 **Pattern trigger:** "All combinations", "all permutations", "all subsets", "N-Queens", "Sudoku"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Generate all subsets
@@ -91,6 +116,9 @@ vector<vector<int>> subsets(vector<int>& nums) {
 // Output: [[], [1], [1,2], [1,2,3], [1,3], [2], [2,3], [3]]
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 List<List<Integer>> result = new ArrayList<>();
@@ -105,9 +133,15 @@ void backtrack(int[] nums, int start, List<Integer> current) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Permutations
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: All permutations
@@ -133,6 +167,9 @@ vector<vector<int>> permute(vector<int>& nums) {
 // Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 List<List<Integer>> result = new ArrayList<>();
@@ -154,11 +191,17 @@ void permute(int[] nums, int start) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Searching
 
 ### Linear Search — O(n)
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -169,6 +212,9 @@ int linearSearch(vector<int>& arr, int target) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int linearSearch(int[] arr, int target) {
@@ -178,6 +224,9 @@ int linearSearch(int[] arr, int target) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Binary Search — O(log n)
@@ -185,6 +234,9 @@ int linearSearch(int[] arr, int target) {
 Only works on **sorted** arrays. Halves search space each step.
 
 **Pattern trigger:** "Sorted array", "find target", "minimize/maximize answer", "first/last position"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Standard binary search
@@ -200,6 +252,9 @@ int binarySearch(vector<int>& arr, int target) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int binarySearch(int[] arr, int target) {
@@ -214,9 +269,15 @@ int binarySearch(int[] arr, int target) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 #### Binary Search on Answer
 
 When you can't binary search on indices but can on the **answer space**.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Find minimum value that satisfies a condition
@@ -236,6 +297,9 @@ int minEatingSpeed(vector<int>& piles, int h) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int minEatingSpeed(int[] piles, int h) {
@@ -253,6 +317,9 @@ int minEatingSpeed(int[] piles, int h) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Sorting
@@ -262,6 +329,9 @@ int minEatingSpeed(int[] piles, int h) {
 Divide array in halves, sort each, then merge.
 
 **When to use:** Need stable sort, guaranteed O(n log n), counting inversions.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -284,6 +354,9 @@ void mergeSort(vector<int>& arr, int l, int r) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 void mergeSort(int[] arr, int l, int r) {
@@ -305,11 +378,17 @@ void merge(int[] arr, int l, int m, int r) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Quick Sort — O(n log n) avg, O(n²) worst
 
 Partition around pivot. In-place.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -335,6 +414,9 @@ void quickSort(vector<int>& arr, int lo, int hi) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int partition(int[] arr, int lo, int hi) {
@@ -359,11 +441,17 @@ void quickSort(int[] arr, int lo, int hi) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Counting Sort — O(n + k)
 
 Works when elements are in a known small range [0, k].
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -376,6 +464,9 @@ void countingSort(vector<int>& arr, int maxVal) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 void countingSort(int[] arr, int maxVal) {
@@ -386,6 +477,9 @@ void countingSort(int[] arr, int maxVal) {
         while (count[i]-- > 0) arr[idx++] = i;
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 

@@ -4,6 +4,9 @@ title: Arrays & Strings
 sidebar_position: 3
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Arrays & Strings
 
 Arrays are the most fundamental data structure. Mastering array techniques unlocks most interview problems.
@@ -16,8 +19,10 @@ Arrays are the most fundamental data structure. Mastering array techniques unloc
 
 Contiguous memory locations storing elements of the same type. Access is **O(1)** by index.
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++
 #include <vector>
 vector<int> arr = {1, 2, 3, 4, 5};
 cout << arr[2];   // 3 — O(1) access
@@ -25,8 +30,10 @@ arr.push_back(6); // O(1) amortized
 arr.erase(arr.begin() + 1); // O(n) — shifts elements
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 int[] arr = {1, 2, 3, 4, 5};
 System.out.println(arr[2]); // 3
 
@@ -37,6 +44,9 @@ list.add(6);        // O(1) amortized
 list.remove(1);     // O(n) — shifts elements
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Prefix Sum
@@ -45,8 +55,10 @@ Precompute cumulative sums to answer **range sum queries** in O(1) after O(n) pr
 
 **Pattern trigger:** "Sum of subarray", "range sum", "sum equals k"
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++
 vector<int> arr = {1, 2, 3, 4, 5};
 int n = arr.size();
 vector<int> prefix(n + 1, 0);
@@ -62,8 +74,10 @@ auto rangeSum = [&](int l, int r) {
 cout << rangeSum(1, 3); // 2+3+4 = 9
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 int[] arr = {1, 2, 3, 4, 5};
 int n = arr.length;
 int[] prefix = new int[n + 1];
@@ -76,7 +90,10 @@ int rangeSum = prefix[4] - prefix[1]; // 2+3+4 = 9
 System.out.println(rangeSum);
 ```
 
-**Classic Problem:** [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) — Use prefix sum + HashMap.
+</TabItem>
+</Tabs>
+
+**Classic Problem:** Subarray Sum Equals K — Use prefix sum + HashMap.
 
 ---
 
@@ -84,8 +101,10 @@ System.out.println(rangeSum);
 
 **Pattern trigger:** "Maximum subarray", "contiguous subarray", "largest sum"
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++
 int maxSubArray(vector<int>& nums) {
     int maxSum = nums[0];
     int curSum = nums[0];
@@ -100,8 +119,10 @@ int maxSubArray(vector<int>& nums) {
 // Output: 6 (subarray: [4,-1,2,1])
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 int maxSubArray(int[] nums) {
     int maxSum = nums[0];
     int curSum = nums[0];
@@ -112,7 +133,12 @@ int maxSubArray(int[] nums) {
     }
     return maxSum;
 }
+// Input: [-2,1,-3,4,-1,2,1,-5,4]
+// Output: 6 (subarray: [4,-1,2,1])
 ```
+
+</TabItem>
+</Tabs>
 
 **Key insight:** At each position, either start fresh or extend the previous subarray.
 
@@ -124,8 +150,11 @@ Reduce O(n²) brute force to O(n) using two indices moving toward each other.
 
 **Pattern trigger:** "Sorted array", "pair with sum X", "three sum", "container with most water"
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++: Two Sum II (sorted array)
+// Two Sum II (sorted array)
 vector<int> twoSum(vector<int>& nums, int target) {
     int left = 0, right = nums.size() - 1;
     while (left < right) {
@@ -138,8 +167,10 @@ vector<int> twoSum(vector<int>& nums, int target) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 int[] twoSum(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
     while (left < right) {
@@ -152,20 +183,26 @@ int[] twoSum(int[] nums, int target) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 **Classic Problems:** Two Sum, 3Sum, Container With Most Water, Trapping Rain Water
 
 ---
 
 ### Sliding Window
 
-Maintain a window of size k (fixed or variable) and slide it across the array.
+Maintain a window and slide it across the array.
 
 **Pattern trigger:** "Subarray of size k", "longest substring without...", "minimum window", "max sum of k elements"
 
 #### Fixed Window
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++: Max sum subarray of size k
+// Max sum subarray of size k
 int maxSumK(vector<int>& arr, int k) {
     int windowSum = 0;
     for (int i = 0; i < k; i++) windowSum += arr[i];
@@ -179,8 +216,10 @@ int maxSumK(vector<int>& arr, int k) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 int maxSumK(int[] arr, int k) {
     int windowSum = 0;
     for (int i = 0; i < k; i++) windowSum += arr[i];
@@ -194,17 +233,23 @@ int maxSumK(int[] arr, int k) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 #### Variable Window
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++: Longest substring without repeating characters
+// Longest substring without repeating characters
 int lengthOfLongestSubstring(string s) {
     unordered_map<char, int> freq;
     int left = 0, maxLen = 0;
 
     for (int right = 0; right < s.size(); right++) {
         freq[s[right]]++;
-        while (freq[s[right]] > 1) { // shrink window
+        while (freq[s[right]] > 1) {
             freq[s[left]]--;
             left++;
         }
@@ -215,8 +260,10 @@ int lengthOfLongestSubstring(string s) {
 // Input: "abcabcbb" → Output: 3 ("abc")
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 int lengthOfLongestSubstring(String s) {
     Map<Character, Integer> freq = new HashMap<>();
     int left = 0, maxLen = 0;
@@ -231,7 +278,11 @@ int lengthOfLongestSubstring(String s) {
     }
     return maxLen;
 }
+// Input: "abcabcbb" → Output: 3 ("abc")
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 
@@ -239,8 +290,10 @@ int lengthOfLongestSubstring(String s) {
 
 ### String Manipulation
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++
 #include <string>
 string s = "hello";
 reverse(s.begin(), s.end());       // "olleh"
@@ -249,8 +302,10 @@ s.find("ll");                      // 1 (index)
 transform(s.begin(),s.end(),s.begin(),toupper); // "HELLO"
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 String s = "hello";
 new StringBuilder(s).reverse().toString(); // "olleh"
 s.substring(1, 4);     // "ell" (start inclusive, end exclusive)
@@ -258,6 +313,9 @@ s.indexOf("ll");       // 2
 s.toUpperCase();       // "HELLO"
 s.split(",");          // split by delimiter
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 
@@ -267,8 +325,10 @@ Find pattern P in text T in **O(n + m)** instead of O(nm) naive.
 
 **Pattern trigger:** "Find pattern in text", "string matching", "number of occurrences"
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++
 vector<int> buildLPS(string& pattern) {
     int m = pattern.size();
     vector<int> lps(m, 0);
@@ -305,8 +365,10 @@ vector<int> KMPSearch(string& text, string& pattern) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 int[] buildLPS(String pattern) {
     int m = pattern.length();
     int[] lps = new int[m];
@@ -325,12 +387,17 @@ int[] buildLPS(String pattern) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Palindrome Check
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
-// C++: Check if string is palindrome
 bool isPalindrome(string s) {
     int left = 0, right = s.size() - 1;
     while (left < right) {
@@ -341,8 +408,10 @@ bool isPalindrome(string s) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
-// Java
 boolean isPalindrome(String s) {
     int left = 0, right = s.length() - 1;
     while (left < right) {
@@ -352,6 +421,9 @@ boolean isPalindrome(String s) {
     return true;
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 

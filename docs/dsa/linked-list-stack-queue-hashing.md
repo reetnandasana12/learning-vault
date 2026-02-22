@@ -4,6 +4,10 @@ title: Linked List, Stack, Queue & Hashing
 sidebar_position: 5
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Linked List, Stack, Queue & Hashing
 
 ---
@@ -11,6 +15,9 @@ sidebar_position: 5
 ## Linked List
 
 ### Node Structure
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -21,6 +28,9 @@ struct ListNode {
 };
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 class ListNode {
@@ -30,11 +40,17 @@ class ListNode {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Reverse Linked List
 
 **Pattern trigger:** "Reverse list", "palindrome linked list"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Iterative — O(n) time, O(1) space
@@ -51,6 +67,9 @@ ListNode* reverseList(ListNode* head) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java: Iterative
 ListNode reverseList(ListNode head) {
@@ -66,6 +85,9 @@ ListNode reverseList(ListNode head) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Detect Cycle — Floyd's Algorithm
@@ -73,6 +95,9 @@ ListNode reverseList(ListNode head) {
 Two pointers: **slow** moves 1 step, **fast** moves 2 steps. If they meet → cycle exists.
 
 **Pattern trigger:** "Detect cycle", "find loop", "linked list loop start"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -106,6 +131,9 @@ ListNode* detectCycle(ListNode* head) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 boolean hasCycle(ListNode head) {
@@ -119,9 +147,15 @@ boolean hasCycle(ListNode head) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Find Middle Node
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Fast & Slow pointer
@@ -136,6 +170,9 @@ ListNode* middleNode(ListNode* head) {
 // [1,2,3,4,5] → returns node 3
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 ListNode middleNode(ListNode head) {
@@ -148,9 +185,15 @@ ListNode middleNode(ListNode head) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Merge Two Sorted Lists
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -167,6 +210,9 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -182,11 +228,17 @@ ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Stack
 
 ### LIFO — Last In First Out
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -199,6 +251,9 @@ st.pop();          // remove top
 cout << st.empty(); // false
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 import java.util.Stack;
@@ -210,11 +265,17 @@ st.pop();
 System.out.println(st.isEmpty()); // false
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Valid Parentheses
 
 **Pattern trigger:** "Balanced brackets", "matching pairs", "valid expression"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -237,6 +298,9 @@ bool isValid(string s) {
 // Input: "([)]"   → false
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 boolean isValid(String s) {
@@ -256,11 +320,17 @@ boolean isValid(String s) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Monotonic Stack — Next Greater Element
 
 **Pattern trigger:** "Next greater/smaller element", "daily temperatures", "stock span"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Next Greater Element
@@ -281,6 +351,9 @@ vector<int> nextGreater(vector<int>& nums) {
 // Input: [2,1,2,4,3] → [4,2,4,-1,-1]
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int[] nextGreater(int[] nums) {
@@ -299,11 +372,17 @@ int[] nextGreater(int[] nums) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Queue
 
 ### FIFO — First In First Out
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -316,6 +395,9 @@ q.pop();           // remove front
 cout << q.back();  // 20 — peek back
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 import java.util.LinkedList;
@@ -327,11 +409,17 @@ System.out.println(q.peek()); // 10
 q.poll();                     // remove
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Priority Queue (Heap-based)
 
 **Pattern trigger:** "Top K elements", "K largest/smallest", "median", "task scheduling"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Min heap
@@ -347,6 +435,9 @@ maxHeap.push(5); maxHeap.push(1); maxHeap.push(3);
 cout << maxHeap.top(); // 5 — largest
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java: Min heap
 PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -359,9 +450,15 @@ maxHeap.offer(5); maxHeap.offer(1); maxHeap.offer(3);
 System.out.println(maxHeap.peek()); // 5
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Deque — Sliding Window Maximum
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Max in each window of size k — O(n)
@@ -383,6 +480,9 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 // Output: [3,3,5,5,6,7]
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int[] maxSlidingWindow(int[] nums, int k) {
@@ -400,6 +500,9 @@ int[] maxSlidingWindow(int[] nums, int k) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Hashing
@@ -407,6 +510,9 @@ int[] maxSlidingWindow(int[] nums, int k) {
 ### HashMap / HashSet
 
 O(1) average for insert, delete, lookup.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -423,6 +529,9 @@ seen.insert(3);
 if (seen.count(3)) cout << "found"; // found
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 Map<String, Integer> freq = new HashMap<>();
@@ -435,9 +544,15 @@ seen.add(3);
 if (seen.contains(3)) System.out.println("found");
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Two Sum — Classic Hash Map Problem
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: O(n) time, O(n) space
@@ -454,6 +569,9 @@ vector<int> twoSum(vector<int>& nums, int target) {
 // Input: [2,7,11,15], target=9 → [0,1]
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int[] twoSum(int[] nums, int target) {
@@ -468,9 +586,15 @@ int[] twoSum(int[] nums, int target) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Frequency Counter Pattern
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Anagram check
@@ -487,6 +611,9 @@ bool isAnagram(string s, string t) {
 // "anagram" and "nagaram" → true
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 boolean isAnagram(String s, String t) {
@@ -500,6 +627,9 @@ boolean isAnagram(String s, String t) {
     return true;
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 

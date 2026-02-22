@@ -4,6 +4,10 @@ title: Big-O & Complexity Analysis
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Big-O & Complexity Analysis
 
 Understanding complexity is the **first skill** you need. Every solution must be analyzed for time and space usage.
@@ -67,12 +71,18 @@ O(n + log n)→ O(n)
 
 ### O(1) — Constant
 
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
+
 ```cpp
 // C++
 int getFirst(vector<int>& arr) {
     return arr[0];  // Always 1 operation
 }
 ```
+
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 // Java
@@ -81,9 +91,15 @@ int getFirst(int[] arr) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### O(log n) — Binary Search
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -99,6 +115,9 @@ int binarySearch(vector<int>& arr, int target) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int binarySearch(int[] arr, int target) {
@@ -113,11 +132,17 @@ int binarySearch(int[] arr, int target) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 **Why O(log n)?** Each step cuts the search space in half.
 
 ---
 
 ### O(n) — Linear Scan
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -128,6 +153,9 @@ int findMax(vector<int>& arr) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int findMax(int[] arr) {
@@ -137,9 +165,15 @@ int findMax(int[] arr) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### O(n²) — Nested Loop
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Check all pairs
@@ -151,6 +185,9 @@ bool hasDuplicate(vector<int>& arr) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 boolean hasDuplicate(int[] arr) {
@@ -160,6 +197,9 @@ boolean hasDuplicate(int[] arr) {
     return false;
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 

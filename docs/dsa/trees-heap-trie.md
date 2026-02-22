@@ -4,6 +4,10 @@ title: Trees, Heap & Trie
 sidebar_position: 6
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Trees, Heap & Trie
 
 ---
@@ -11,6 +15,9 @@ sidebar_position: 6
 ## Binary Tree
 
 ### Node Structure
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -22,6 +29,9 @@ struct TreeNode {
 };
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 class TreeNode {
@@ -31,6 +41,9 @@ class TreeNode {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Tree Traversals
@@ -38,6 +51,9 @@ class TreeNode {
 #### Inorder (Left → Root → Right)
 
 Gives **sorted order** for BST.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Recursive
@@ -63,6 +79,9 @@ vector<int> inorderIterative(TreeNode* root) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java: Recursive
 void inorder(TreeNode root, List<Integer> result) {
@@ -73,9 +92,15 @@ void inorder(TreeNode root, List<Integer> result) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 #### Preorder (Root → Left → Right)
 
 Used to **copy** or **serialize** a tree.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -128,6 +153,9 @@ vector<vector<int>> levelOrder(TreeNode* root) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 List<List<Integer>> levelOrder(TreeNode root) {
@@ -151,9 +179,15 @@ List<List<Integer>> levelOrder(TreeNode root) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Height of Tree
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -163,6 +197,9 @@ int height(TreeNode* root) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int height(TreeNode root) {
@@ -171,9 +208,15 @@ int height(TreeNode root) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Lowest Common Ancestor (LCA)
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: LCA of Binary Tree
@@ -186,6 +229,9 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -197,11 +243,17 @@ TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Diameter of Binary Tree
 
 Longest path between any two nodes (may not pass through root).
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -219,6 +271,9 @@ int diameterOfBinaryTree(TreeNode* root) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int diameter = 0;
@@ -231,6 +286,9 @@ int dfs(TreeNode root) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Binary Search Tree (BST)
@@ -238,6 +296,9 @@ int dfs(TreeNode root) {
 **Property:** Left subtree < Root < Right subtree (all nodes)
 
 ### Search in BST
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: O(h) — h = height
@@ -248,6 +309,9 @@ TreeNode* searchBST(TreeNode* root, int val) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 TreeNode searchBST(TreeNode root, int val) {
@@ -257,7 +321,13 @@ TreeNode searchBST(TreeNode root, int val) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### Validate BST
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -272,6 +342,9 @@ bool isValidBST(TreeNode* root) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 boolean isValid(TreeNode root, long min, long max) {
@@ -285,11 +358,17 @@ boolean isValidBST(TreeNode root) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Heap
 
 ### Min Heap Implementation
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Using STL priority_queue
@@ -304,6 +383,9 @@ minHeap.pop();
 cout << minHeap.top(); // 3
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -315,11 +397,17 @@ minHeap.poll();
 System.out.println(minHeap.peek()); // 3
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Kth Largest Element
 
 **Pattern trigger:** "K largest", "K smallest", "top K frequent"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Use min heap of size k — O(n log k)
@@ -334,6 +422,9 @@ int findKthLargest(vector<int>& nums, int k) {
 // Input: [3,2,1,5,6,4], k=2 → Output: 5
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int findKthLargest(int[] nums, int k) {
@@ -346,9 +437,15 @@ int findKthLargest(int[] nums, int k) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Top K Frequent Elements
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -373,6 +470,9 @@ vector<int> topKFrequent(vector<int>& nums, int k) {
 // Input: [1,1,1,2,2,3], k=2 → Output: [1,2]
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int[] topKFrequent(int[] nums, int k) {
@@ -391,6 +491,9 @@ int[] topKFrequent(int[] nums, int k) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Trie
@@ -398,6 +501,9 @@ int[] topKFrequent(int[] nums, int k) {
 Used for efficient **prefix searching**.
 
 ### Trie Node
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -448,6 +554,9 @@ public:
 // insert("apple") → search("apple")=true, startsWith("app")=true
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 class Trie {
@@ -490,6 +599,9 @@ class Trie {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 

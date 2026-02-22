@@ -4,6 +4,10 @@ title: Bit Manipulation & Advanced Topics
 sidebar_position: 9
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Bit Manipulation & Advanced Topics
 
 ---
@@ -26,6 +30,9 @@ Work directly with binary representations for ultra-fast, space-efficient soluti
 ---
 
 ### Essential Bit Tricks
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -65,6 +72,9 @@ int turnOffRight(int n) { return n & (n - 1); }
 int lowestSetBit(int n) { return n & (-n); }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int n = 13;
@@ -75,6 +85,9 @@ boolean isPowerOf2 = n > 0 && (n & (n - 1)) == 0;
 int countBits = Integer.bitCount(n); // built-in
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Single Number — XOR Magic
@@ -82,6 +95,9 @@ int countBits = Integer.bitCount(n); // built-in
 XOR of a number with itself = 0. XOR of 0 with x = x.
 
 **Pattern trigger:** "Single number", "find unique", "all others appear twice"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Find the one number appearing once
@@ -93,6 +109,9 @@ int singleNumber(vector<int>& nums) {
 // Input: [4,1,2,1,2] → Output: 4
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int singleNumber(int[] nums) {
@@ -102,11 +121,17 @@ int singleNumber(int[] nums) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Subsets via Bitmask
 
 Generate all subsets of n elements using bits.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: All subsets of [1,2,3]
@@ -124,6 +149,9 @@ void generateSubsets(vector<int>& nums) {
 // 3 elements → 2³=8 subsets: {},{1},{2},{1,2},{3},{1,3},{2,3},{1,2,3}
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 void generateSubsets(int[] nums) {
@@ -138,9 +166,15 @@ void generateSubsets(int[] nums) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Number of 1 Bits (Hamming Weight)
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -155,6 +189,9 @@ int hammingWeight(uint32_t n) {
 // n=11 (1011) → 3 set bits
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int hammingWeight(int n) {
@@ -164,6 +201,9 @@ int hammingWeight(int n) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Advanced Topics
@@ -171,6 +211,9 @@ int hammingWeight(int n) {
 ### Segment Tree — Range Query & Point Update
 
 **Use:** Range sum/min/max query + point update in O(log n).
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Segment Tree for range sum
@@ -213,6 +256,9 @@ public:
 };
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java: Segment Tree
 class SegmentTree {
@@ -243,11 +289,17 @@ class SegmentTree {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Fenwick Tree (BIT) — Prefix Sum Queries
 
 Simpler than segment tree for prefix sum queries + point updates in O(log n).
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -275,6 +327,9 @@ public:
 };
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 class FenwickTree {
@@ -293,6 +348,9 @@ class FenwickTree {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 

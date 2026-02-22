@@ -4,6 +4,10 @@ title: Dynamic Programming & Greedy
 sidebar_position: 8
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Dynamic Programming & Greedy
 
 ---
@@ -22,6 +26,9 @@ DP solves problems with **overlapping subproblems** and **optimal substructure**
 ---
 
 ### Fibonacci — DP Introduction
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++ — Memoization (Top-down)
@@ -45,6 +52,9 @@ long long fibTab(int n) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java — Tabulation
 long fib(int n) {
@@ -58,6 +68,9 @@ long fib(int n) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### 0/1 Knapsack
@@ -65,6 +78,9 @@ long fib(int n) {
 Each item can be taken **at most once**. Maximize value with weight limit W.
 
 **Pattern trigger:** "Choose items with weight constraint", "include/exclude", "partition equal subset"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: dp[i][w] = max value using first i items with capacity w
@@ -84,6 +100,9 @@ int knapsack(vector<int>& weights, vector<int>& values, int W) {
 // weights=[1,3,4,5], values=[1,4,5,7], W=7 → 9
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java — Space optimized 1D DP
 int knapsack(int[] weights, int[] values, int W) {
@@ -99,6 +118,9 @@ int knapsack(int[] weights, int[] values, int W) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 **Key insight:** Iterate weight **backward** in 1D to ensure each item used at most once.
 
 ---
@@ -108,6 +130,9 @@ int knapsack(int[] weights, int[] values, int W) {
 Each item can be taken **unlimited** times. Find minimum coins for amount.
 
 **Pattern trigger:** "Minimum coins", "ways to make change", "rod cutting", "item used multiple times"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Minimum coins — dp[i] = min coins to make amount i
@@ -126,6 +151,9 @@ int coinChange(vector<int>& coins, int amount) {
 // coins=[1,5,6,9], amount=11 → 2 (5+6)
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int coinChange(int[] coins, int amount) {
@@ -143,6 +171,9 @@ int coinChange(int[] coins, int amount) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Longest Common Subsequence (LCS)
@@ -150,6 +181,9 @@ int coinChange(int[] coins, int amount) {
 Find longest subsequence common to both strings (characters don't need to be contiguous).
 
 **Pattern trigger:** "Common subsequence", "edit distance", "shortest common supersequence"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: dp[i][j] = LCS length of s1[0..i-1] and s2[0..j-1]
@@ -170,6 +204,9 @@ int lcs(string& s1, string& s2) {
 // s1="ABCBDAB", s2="BDCABA" → 4 ("BCBA")
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int lcs(String s1, String s2) {
@@ -186,11 +223,17 @@ int lcs(String s1, String s2) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Longest Increasing Subsequence (LIS)
 
 Find the length of the longest strictly increasing subsequence.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++ — O(n²) DP
@@ -219,6 +262,9 @@ int lisOptimal(vector<int>& nums) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java — O(n log n)
 int lis(int[] nums) {
@@ -233,11 +279,17 @@ int lis(int[] nums) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Edit Distance
 
 Minimum operations (insert, delete, replace) to transform s1 to s2.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -263,6 +315,9 @@ int editDistance(string& s1, string& s2) {
 // "horse" → "ros" = 3 operations
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int editDistance(String s1, String s2) {
@@ -282,9 +337,15 @@ int editDistance(String s1, String s2) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### DP on Trees — Maximum Path Sum
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -339,6 +400,9 @@ int activitySelection(vector<pair<int,int>>& activities) {
 // Output: 4
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int activitySelection(int[][] activities) {
@@ -355,11 +419,17 @@ int activitySelection(int[][] activities) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Fractional Knapsack
 
 Take fractions of items to maximize value.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -385,6 +455,9 @@ double fractionalKnapsack(vector<int>& weights, vector<int>& values, int W) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 double fractionalKnapsack(int[] weights, int[] values, int W) {
@@ -402,11 +475,17 @@ double fractionalKnapsack(int[] weights, int[] values, int W) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ### Jump Game
 
 Can you reach the last index?
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Greedy — track max reachable index
@@ -422,6 +501,9 @@ bool canJump(vector<int>& nums) {
 // Input: [3,2,1,0,4] → false
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 boolean canJump(int[] nums) {
@@ -433,6 +515,9 @@ boolean canJump(int[] nums) {
     return true;
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 

@@ -4,6 +4,10 @@ title: Graphs
 sidebar_position: 7
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 # Graphs
 
 A graph is a collection of **nodes (vertices)** connected by **edges**. Graphs model networks, maps, dependencies, and relationships.
@@ -13,6 +17,9 @@ A graph is a collection of **nodes (vertices)** connected by **edges**. Graphs m
 ## Graph Representation
 
 ### Adjacency List (Preferred — Space efficient)
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Undirected graph
@@ -30,6 +37,9 @@ wadj[0].push_back({1, 4});
 wadj[1].push_back({0, 4});
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int n = 5;
@@ -45,6 +55,9 @@ for (int i = 0; i < n; i++) wadj.add(new ArrayList<>());
 wadj.get(0).add(new int[]{1, 4}); // {neighbor, weight}
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## BFS — Breadth First Search
@@ -52,6 +65,9 @@ wadj.get(0).add(new int[]{1, 4}); // {neighbor, weight}
 Explores level by level. Used for **shortest path in unweighted graph**.
 
 **Pattern trigger:** "Shortest path", "minimum steps", "level order in graph", "all reachable nodes"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: BFS
@@ -77,6 +93,9 @@ vector<int> bfs(int start, vector<vector<int>>& adj, int n) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 List<Integer> bfs(int start, List<List<Integer>> adj, int n) {
@@ -100,7 +119,13 @@ List<Integer> bfs(int start, List<List<Integer>> adj, int n) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ### BFS Shortest Path
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++: Shortest distances from start
@@ -158,6 +183,9 @@ void dfsIterative(int start, vector<vector<int>>& adj, int n) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java: DFS recursive
 void dfs(int node, List<List<Integer>> adj, boolean[] visited) {
@@ -170,11 +198,17 @@ void dfs(int node, List<List<Integer>> adj, boolean[] visited) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Cycle Detection
 
 ### Undirected Graph (DFS)
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -244,6 +278,9 @@ vector<int> topoSort(int n, vector<vector<int>>& adj) {
 // Classic Problem: Course Schedule II
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 int[] topoSort(int n, List<List<Integer>> adj) {
@@ -267,6 +304,9 @@ int[] topoSort(int n, List<List<Integer>> adj) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Dijkstra's Algorithm — Shortest Path (Non-negative weights)
@@ -274,6 +314,9 @@ int[] topoSort(int n, List<List<Integer>> adj) {
 **O((V + E) log V)** using priority queue.
 
 **Pattern trigger:** "Shortest path weighted graph", "minimum cost path", "network delay"
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -298,6 +341,9 @@ vector<int> dijkstra(int src, int n, vector<vector<pair<int,int>>>& adj) {
     return dist;
 }
 ```
+
+</TabItem>
+<TabItem value="java" label="Java">
 
 ```java
 // Java
@@ -326,11 +372,17 @@ int[] dijkstra(int src, int n, List<List<int[]>> adj) {
 }
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Bellman-Ford — Handles Negative Weights
 
 **O(VE)** — relaxes all edges V-1 times.
+
+<Tabs groupId="language">
+<TabItem value="cpp" label="C++">
 
 ```cpp
 // C++
@@ -391,6 +443,9 @@ int countComponents(int n, vector<vector<int>>& edges) {
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
 ```java
 // Java
 class UnionFind {
@@ -413,6 +468,9 @@ class UnionFind {
     }
 }
 ```
+
+</TabItem>
+</Tabs>
 
 ---
 
